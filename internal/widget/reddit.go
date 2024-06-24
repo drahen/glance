@@ -25,6 +25,7 @@ type Reddit struct {
 	Limit               int             `yaml:"limit"`
 	CollapseAfter       int             `yaml:"collapse-after"`
 	RequestUrlTemplate  string          `yaml:"request-url-template"`
+	ProxyURL            string          `yaml:"proxy_url"`
 }
 
 func (widget *Reddit) Initialize() error {
@@ -84,6 +85,7 @@ func (widget *Reddit) Update(ctx context.Context) {
 		widget.Search,
 		widget.CommentsUrlTemplate,
 		widget.RequestUrlTemplate,
+		widget.ProxyURL,
 	)
 
 	if !widget.canContinueUpdateAfterHandlingErr(err) {

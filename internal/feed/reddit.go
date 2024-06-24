@@ -30,7 +30,7 @@ type subredditResponseJson struct {
 	} `json:"data"`
 }
 
-func FetchSubredditPosts(subreddit, sort, topPeriod, search, commentsUrlTemplate, requestUrlTemplate string) (ForumPosts, error) {
+func FetchSubredditPosts(subreddit, sort, topPeriod, search, commentsUrlTemplate, requestUrlTemplate string, proxyUrl string) (ForumPosts, error) {
 	query := url.Values{}
 	var requestUrl string
 
@@ -52,6 +52,14 @@ func FetchSubredditPosts(subreddit, sort, topPeriod, search, commentsUrlTemplate
 	if requestUrlTemplate != "" {
 		requestUrl = strings.ReplaceAll(requestUrlTemplate, "{REQUEST-URL}", requestUrl)
 	}
+
+	transport := http.DefaultTransport
+	if proxyUrl != "" {
+		proxyURL, _ := url.Parse(proxyUrl)
+		proxy := http.ProxyURL(proxyURL)
+		transport = &http.Transport{Proxy: proxy}
+	}
+	defaultClient.Transport = transport
 
 	request, err := http.NewRequest("GET", requestUrl, nil)
 
