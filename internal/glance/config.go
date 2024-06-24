@@ -8,6 +8,7 @@ import (
 )
 
 type Config struct {
+	Site   Site   `yaml:"site"`
 	Server Server `yaml:"server"`
 	Theme  Theme  `yaml:"theme"`
 	Pages  []Page `yaml:"pages"`

@@ -593,10 +593,26 @@ kbd:active {
     line-height: var(--header-height);
 }
 
+.footer-container {
+    display: flex;
+    --header-height: 45px;
+}
+
 .footer {
+    flex: auto;
+    height: var(--header-height);
+    line-height: var(--header-height);
     margin-block: calc(var(--widget-gap) * 1.5);
     animation: loadingContainerEntrance 200ms backwards;
     animation-delay: 150ms;
+}
+
+.footer-left {
+    border-right: none;
+}
+
+.footer-right {
+    border-left: none;
 }
 
 .mobile-navigation, .mobile-reachability-header {
@@ -1387,6 +1403,7 @@ kbd:active {
 .flex-column        { flex-direction: column; }
 .items-center       { align-items: center; }
 .items-start        { align-items: start; }
+.items-end          { align-items: end; }
 .gap-5              { gap: 0.5rem; }
 .gap-7              { gap: 0.7rem; }
 .gap-10             { gap: 1rem; }

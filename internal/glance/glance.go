@@ -44,6 +44,11 @@ type Server struct {
 	StartedAt  time.Time `yaml:"-"`
 }
 
+type Site struct {
+	Name string `yaml:"name"`
+	URL  string `yaml:"url"`
+}
+
 type Column struct {
 	Size    string         `yaml:"size"`
 	Widgets widget.Widgets `yaml:"widgets"`

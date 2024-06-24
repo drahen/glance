@@ -58,10 +58,16 @@
     </div>
 </div>
 
-<div class="footer flex items-center flex-column">
-    <div>
-        <a class="size-h3" href="https://github.com/glanceapp/glance" target="_blank" rel="noreferrer">Glance</a> {{ if ne "dev" .App.Version }}<a class="visited-indicator" title="Release notes" href="https://github.com/glanceapp/glance/releases/tag/{{ .App.Version }}" target="_blank" rel="noreferrer">{{ .App.Version }}</a>{{ else }}({{ .App.Version }}){{ end }}
+<div class="footer-container content-bounds">
+    <div class="footer footer-left flex flex-column padding-inline-widget widget-content-frame">
+        <div>
+            <a class="size-h4" href="{{ .App.Config.Site.URL }}" target="_blank" rel="noreferrer">{{ .App.Config.Site.Name }}</a>
+        </div>
     </div>
-    <a class="color-primary block margin-top-5 size-h5" href="https://github.com/glanceapp/glance/issues" target="_blank" rel="noreferrer">Report issue</a>
+    <div class="footer footer-right flex flex-column items-end padding-inline-widget widget-content-frame">
+        <div>
+            Powered by <a class="size-h4" href="https://github.com/glanceapp/glance" target="_blank" rel="noreferrer">Glance</a>
+        </div>
+    </div>
 </div>
 {{ end }}
