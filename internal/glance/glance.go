@@ -45,8 +45,14 @@ type Server struct {
 }
 
 type Site struct {
-	Name string `yaml:"name"`
-	URL  string `yaml:"url"`
+	Name      string    `yaml:"name"`
+	URL       string    `yaml:"url"`
+	Analytics Analytics `yaml:"analytics"`
+}
+
+type Analytics struct {
+	UmamiWebsiteURL string `yaml:"umami-website-url"`
+	UmamiWebsiteId  string `yaml:"umami-website-id"`
 }
 
 type Column struct {

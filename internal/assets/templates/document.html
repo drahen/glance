@@ -21,5 +21,8 @@
 </head>
 <body>
 {{ template "document-body" . }}
+{{ if ne "" .App.Config.Site.Analytics.UmamiWebsiteId }}
+    <script defer src="{{ .App.Config.Site.Analytics.UmamiWebsiteURL }}" data-website-id="{{ .App.Config.Site.Analytics.UmamiWebsiteId }}"></script>
+{{ end }}
 </body>
 </html>
