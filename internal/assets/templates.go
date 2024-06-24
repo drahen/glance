@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"math"
 	"strconv"
+	"strings"
 	"time"
 
 	"golang.org/x/text/language"
@@ -65,6 +66,9 @@ var globalTemplateFunctions = template.FuncMap{
 	},
 	"dynamicRelativeTimeAttrs": func(t time.Time) template.HTMLAttr {
 		return template.HTMLAttr(fmt.Sprintf(`data-dynamic-relative-time="%d"`, t.Unix()))
+	},
+	"toUpper": func(s string) string {
+		return strings.ToUpper(s)
 	},
 }
 
